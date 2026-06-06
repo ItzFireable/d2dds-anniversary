@@ -1,0 +1,39 @@
+{
+ "version": "2.2.4",
+ "songName": "Mugshot",
+ "artist": "GDD",
+ "charter": "GDD",
+ "offsets": { },
+ "playData": {
+  "difficulties": [
+   "hard"
+  ],
+  "characters": {
+   "player": "d2dds",
+   "girlfriend": "gf",
+   "opponent": "minus-d2dds",
+   "opponentVocals": [
+    "minus-d2dds"
+   ],
+   "playerVocals": [
+    "d2dds"
+   ]
+  },
+  "stage": "mugshot",
+  "noteStyle": "funkin",
+  "ratings": {
+   "hard": 7
+  },
+  "previewStart": 1.73611111111111e-05,
+  "previewEnd": 1.92901234567901e-05
+ },
+ "generatedBy": "Friday Night Funkin' - v0.8.4",
+ "timeChanges": [
+  {
+   "t": 0,
+   "b": 0,
+   "bpm": 140,
+   "bt": [4, 4, 4, 4]
+  }
+ ]
+}

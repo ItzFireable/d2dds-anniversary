@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "name": "Door to Door Door Salesman",
+  "renderType": "sparrow",
+  "assetPath": "characters/d2dds sprites",
+  "singTime": 8.0,
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "d2dds idle0"
+    },
+    {
+      "name": "singUP",
+      "prefix": "d2dds up0"
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "d2dds down0"
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "d2dds left0"
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "d2dds right0"
+    }
+  ]
+}

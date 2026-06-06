@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "name": "Minus Door to Door Door Salesman",
+  "renderType": "sparrow",
+  "assetPath": "characters/minus d2 sprites",
+  "singTime": 8.0,
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "minus d2 idle0"
+    },
+    {
+      "name": "singUP",
+      "prefix": "minus d2 up0"
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "minus d2 down0"
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "minus d2 left0"
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "minus d2 right0"
+    }
+  ]
+}
