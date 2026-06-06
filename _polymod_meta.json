@@ -1,0 +1,25 @@
+{
+  "title": "D2DDS Anniversary",
+  "description": "",
+  "contributors": [
+    {
+      "name": "pizzapancakess_",
+      "role": "Artist"
+    },
+    {
+      "name": "GDD",
+      "role": "Programmer"
+    },
+    {
+      "name": "Fireable",
+      "role": "Programmer"
+    },
+    {
+      "name": "ito saihara",
+      "role": "Artist"
+    }
+  ],
+  "api_version": "0.8.4",
+  "mod_version": "1.0.0",
+  "license": "MIT"
+}
