@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+
+  "backdrop": {
+    "type": "solid",
+    "fadeTime": 0,
+    "color": "#00FFFFFF"
+  },
+
+  "music": {
+    "asset": "",
+    "fadeTime": 0,
+    "looped": false
+  },
+
+  "outro": {
+    "type": "fade",
+    "fadeTime": 0
+  },
+
+  "dialogue": [
+    {
+      "speaker": "minus-d2dds",
+      "speakerAnimation": "talk",
+      "box": "door",
+      "boxAnimation": "idle",
+
+      "text": ["COME ON, JUST HAND YOURSELF IN ALREADY!"]
+    },
+    {
+      "speaker": "d2dds",
+      "speakerAnimation": "talk",
+      "box": "door",
+      "boxAnimation": "idle",
+
+      "text": ["PLEASE, IF YOU'D JUST LISTEN TO ME, I CAN EXPLAIN!"]
+    },
+    {
+      "speaker": "minus-d2dds",
+      "speakerAnimation": "talkEnter",
+      "box": "door",
+      "boxAnimation": "idle",
+
+      "text": ["THE MORE YOU RESIST, THE WORSE THIS'LL GET!"]
+    }
+  ]
+}

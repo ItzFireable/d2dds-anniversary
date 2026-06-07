@@ -9,8 +9,15 @@ import funkin.util.HapticUtil;
 import funkin.util.Sequence;
 import funkin.FunkinMemory;
 
+import flixel.util.FlxTimer;
+import flixel.util.FlxColor;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
+
 class MugshotStage extends Stage
 {
+  static var TWEEN_DURATION:Float = 6.0;
+
   function new()
   {
     super('mugshot');
@@ -51,5 +58,31 @@ class MugshotStage extends Stage
     results.push(Paths.image('stages/mugshot/minusdoorbuildings'));
     results.push(Paths.image('stages/mugshot/minusdoorloopstreet'));
     return results;
+  }
+
+  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  {
+    super.onCountdownStart(event);
+
+    getNamedProp('minusCar').x = -4200;
+    PlayState.instance.currentStage.getOpponent().x = -4100;
+  }
+
+  public override function onBeatHit(event:SongTimeScriptEvent)
+  {
+    super.onBeatHit(event);
+
+    switch(event.beat)
+    {
+      case 20:
+        FlxTween.tween(getNamedProp('minusCar'), {x: -2200}, TWEEN_DURATION / 2, {ease: FlxEase.quadOut});
+        FlxTween.tween(PlayState.instance.currentStage.getOpponent(), {x: -2100}, TWEEN_DURATION / 2, {ease: FlxEase.quadOut});
+      case 308:
+        FlxTween.tween(getNamedProp('minusCar'), {x: -4200}, TWEEN_DURATION, {ease: FlxEase.quadOut});
+        FlxTween.tween(PlayState.instance.currentStage.getOpponent(), {x: -4100}, TWEEN_DURATION, {ease: FlxEase.quadOut});
+
+        FlxTween.tween(roadBackdrop.velocity, {x: -50000}, TWEEN_DURATION, {ease: FlxEase.quadOut});
+        FlxTween.tween(buildingBackdrop.velocity, {x: -50000}, TWEEN_DURATION, {ease: FlxEase.quadOut});
+    }
   }
 }

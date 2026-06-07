@@ -4,5 +4,5 @@
   "artists": ["GDD"],
   "albumArtAsset": "freeplay/albumRoll/d2dds",
   "albumTitleAsset": "freeplay/albumRoll/d2dds-text",
-  "albumTitleOffsets": [-120, -15]
+  "albumTitleOffsets": [-120, -35]
 }

@@ -1,0 +1,78 @@
+import funkin.play.song.Song;
+import funkin.play.Countdown;
+import funkin.play.PlayState;
+import funkin.graphics.FunkinSprite;
+
+import flixel.FlxSprite;
+import flixel.util.FlxTimer;
+import flixel.util.FlxColor;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
+
+class MugshotSong extends Song
+{
+  var fade:FunkinSprite;
+  var wasCancelled:Bool;
+  var canSkip:Bool = false;
+
+  static var TWEEN_DURATION:Float = 2.0;
+
+  function new()
+  {
+    super('mugshot');
+  }
+
+  public override function onCreate(event:ScriptEvent):Void
+  {
+    super.onCreate(event);
+
+    wasCancelled = false;
+    canSkip = false;
+  }
+
+  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  {
+    super.onCountdownStart(event);
+    if (wasCancelled) return;
+
+    event.cancel();
+    wasCancelled = true;
+
+    PlayState.instance.camHUD.alpha = 0;
+    PlayState.instance.isInCutscene = false;
+    PlayState.instance.isInCountdown = true;
+
+    fade = new FlxSprite(-1000, -1000).makeGraphic(FlxG.width * 6, FlxG.height * 6, FlxColor.BLACK);
+    fade.scrollFactor.set(0, 0);
+    fade.zIndex = 1000000;
+    PlayState.instance.add(fade);
+    PlayState.instance.refresh();
+    
+    Countdown.skipCountdown();
+    PlayState.instance.startSong();
+  }
+
+  public override function onBeatHit(event:SongTimeScriptEvent)
+  {
+    super.onBeatHit(event);
+
+    switch(event.beat)
+    {
+      case 4:
+        FlxTween.tween(fade, {alpha: 0.0}, TWEEN_DURATION * 2, {ease: FlxEase.quadInOut});
+      case 60:
+        FlxTween.tween(PlayState.instance.camHUD, {alpha: 1.0}, TWEEN_DURATION, {ease: FlxEase.quadInOut});
+      case 208:
+        PlayState.instance.camHUD.alpha = 0;
+        PlayState.instance.startConversation('mugshot');
+      case 220:
+        PlayState.instance.currentConversation?.advanceConversation();
+      case 228:
+        PlayState.instance.currentConversation?.advanceConversation();
+      case 238:
+        PlayState.instance.currentConversation?.advanceConversation();
+        PlayState.instance.currentConversation?.advanceConversation(); // for good measure
+        FlxTween.tween(PlayState.instance.camHUD, {alpha: 1.0}, TWEEN_DURATION / 2, {ease: FlxEase.quadInOut});
+    }
+  }
+}
