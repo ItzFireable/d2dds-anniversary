@@ -73,6 +73,10 @@ class MugshotSong extends Song
         PlayState.instance.currentConversation?.advanceConversation();
         PlayState.instance.currentConversation?.advanceConversation(); // for good measure
         FlxTween.tween(PlayState.instance.camHUD, {alpha: 1.0}, TWEEN_DURATION / 2, {ease: FlxEase.quadInOut});
+      case 306:
+        FlxTween.tween(PlayState.instance.camHUD, {alpha: 0.0}, TWEEN_DURATION / 2, {ease: FlxEase.quadInOut});
+      case 328:
+        FlxTween.tween(fade, {alpha: 1.0}, TWEEN_DURATION * 1.5, {ease: FlxEase.quadInOut});
     }
   }
 }

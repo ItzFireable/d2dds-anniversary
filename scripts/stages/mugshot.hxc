@@ -78,11 +78,8 @@ class MugshotStage extends Stage
         FlxTween.tween(getNamedProp('minusCar'), {x: -2200}, TWEEN_DURATION / 2, {ease: FlxEase.quadOut});
         FlxTween.tween(PlayState.instance.currentStage.getOpponent(), {x: -2100}, TWEEN_DURATION / 2, {ease: FlxEase.quadOut});
       case 308:
-        FlxTween.tween(getNamedProp('minusCar'), {x: -4200}, TWEEN_DURATION, {ease: FlxEase.quadOut});
-        FlxTween.tween(PlayState.instance.currentStage.getOpponent(), {x: -4100}, TWEEN_DURATION, {ease: FlxEase.quadOut});
-
-        FlxTween.tween(roadBackdrop.velocity, {x: -50000}, TWEEN_DURATION, {ease: FlxEase.quadOut});
-        FlxTween.tween(buildingBackdrop.velocity, {x: -50000}, TWEEN_DURATION, {ease: FlxEase.quadOut});
+        FlxTween.tween(getNamedProp('minusCar'), {x: -5200}, TWEEN_DURATION / 1.5, {ease: FlxEase.quadIn});
+        FlxTween.tween(PlayState.instance.currentStage.getOpponent(), {x: -5100}, TWEEN_DURATION / 1.5, {ease: FlxEase.quadIn});
     }
   }
 }

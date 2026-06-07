@@ -774,7 +774,7 @@
 				"ease": "CLASSIC",
 				"easeDir": "In",
 				"x": -200,
-				"y": -300
+				"y": -450
 			},
 			"_layer": "FocusCamera 1"
 		},
