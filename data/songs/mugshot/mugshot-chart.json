@@ -951,7 +951,7 @@
                 "ease": "sine",
                 "easeDir": "Out",
                 "x": 1000,
-                "y": -100
+                "y": -200
             },
             "_layer": "FocusCamera 1"
         },

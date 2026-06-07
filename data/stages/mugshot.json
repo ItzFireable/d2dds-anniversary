@@ -12,7 +12,7 @@
       "scroll": [0.8, 0.8]
     },
     {
-      "zIndex": 4,
+      "zIndex": 1004,
       "danceEvery": 0,
       "position": [-2200,-250],
       "scale": [1.2, 1.2],
@@ -35,7 +35,7 @@
       ]
     },
     {
-      "zIndex": 5,
+      "zIndex": 1004,
       "position": [-400,-200],
       "scale": [1.2, 1.2],
       "name": "doorCar",
@@ -45,12 +45,12 @@
   ],
   "characters": {
     "bf": {
-      "zIndex": 90,
+      "zIndex": 1005,
       "position": [800, 0],
       "cameraOffsets": [0, 0]
     },
     "dad": {
-      "zIndex": 90,
+      "zIndex": 1005,
       "position": [-1300, 120],
       "cameraOffsets": [0, 0]
     },

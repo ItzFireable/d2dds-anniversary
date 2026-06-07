@@ -5,6 +5,7 @@ import funkin.play.PlayState;
 import funkin.graphics.shaders.OverlayBlend;
 import funkin.graphics.shaders.AdjustColorShader;
 import flixel.addons.display.FlxBackdrop;
+import funkin.graphics.FunkinSprite;
 import funkin.util.HapticUtil;
 import funkin.util.Sequence;
 import funkin.FunkinMemory;
@@ -13,6 +14,8 @@ import flixel.util.FlxTimer;
 import flixel.util.FlxColor;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
+
+import funkin.play.components.PopUpStuff;
 
 class MugshotStage extends Stage
 {
@@ -48,6 +51,16 @@ class MugshotStage extends Stage
     roadBackdrop.velocity.x = -25000;
 
     add(roadBackdrop);
+
+    PlayState.instance.comboPopUps.cameras = [PlayState.instance.camGame];
+    PlayState.instance.comboPopUps.memberAdded.add(function(sprite:FunkinSprite)
+    {
+      sprite.scale.set(0.5, 0.5);
+      sprite.x -= 100;
+      sprite.velocity.x = -100;
+      sprite.acceleration.x = -2000;
+    });
+
     refresh();
   }
 
@@ -66,6 +79,13 @@ class MugshotStage extends Stage
 
     getNamedProp('minusCar').x = -4200;
     PlayState.instance.currentStage.getOpponent().x = -4100;
+  }
+
+  public override function onUpdate(event:UpdateScriptEvent):Void
+  {
+    super.onUpdate(event);
+
+    PlayState.instance.camGame.shake(0.003, 0.2);
   }
 
   public override function onBeatHit(event:SongTimeScriptEvent)
