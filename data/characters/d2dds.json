@@ -11,20 +11,50 @@
       "prefix": "d2dds idle0"
     },
     {
+      "name": "idle-hold",
+      "prefix": "d2dds idle0",
+      "frameIndices": [9, 10, 11, 12],
+      "looped": true
+    },
+    {
       "name": "singUP",
       "prefix": "d2dds up0"
+    },
+    {
+      "name": "singUP-hold",
+      "prefix": "d2dds up0",
+      "frameIndices": [9, 10, 11, 12],
+      "looped": true
     },
     {
       "name": "singDOWN",
       "prefix": "d2dds down0"
     },
     {
+      "name": "singDOWN-hold",
+      "prefix": "d2dds down0",
+      "frameIndices": [9, 10, 11, 12],
+      "looped": true
+    },
+    {
       "name": "singLEFT",
       "prefix": "d2dds left0"
     },
     {
+      "name": "singLEFT-hold",
+      "prefix": "d2dds left0",
+      "frameIndices": [9, 10, 11, 12],
+      "looped": true
+    },
+    {
       "name": "singRIGHT",
       "prefix": "d2dds right0"
+    },
+    {
+      "name": "singRIGHT-hold",
+      "prefix": "d2dds right0",
+      "frameIndices": [9, 10, 11, 12],
+      "looped": true
     }
   ]
 }

@@ -10,20 +10,50 @@
       "prefix": "minus d2 idle0"
     },
     {
+      "name": "idle-hold",
+      "prefix": "minus d2 idle0",
+      "frameIndices": [9, 10, 11, 12],
+      "looped": true
+    },
+    {
       "name": "singUP",
       "prefix": "minus d2 up0"
+    },
+    {
+      "name": "singUP-hold",
+      "prefix": "minus d2 up0",
+      "frameIndices": [9, 10, 11, 12],
+      "looped": true
     },
     {
       "name": "singDOWN",
       "prefix": "minus d2 down0"
     },
     {
+      "name": "singDOWN-hold",
+      "prefix": "minus d2 down0",
+      "frameIndices": [9, 10, 11, 12],
+      "looped": true
+    },
+    {
       "name": "singLEFT",
       "prefix": "minus d2 left0"
     },
     {
+      "name": "singLEFT-hold",
+      "prefix": "minus d2 left0",
+      "frameIndices": [9, 10, 11, 12],
+      "looped": true
+    },
+    {
       "name": "singRIGHT",
       "prefix": "minus d2 right0"
+    },
+    {
+      "name": "singRIGHT-hold",
+      "prefix": "minus d2 right0",
+      "frameIndices": [9, 10, 11, 12],
+      "looped": true
     }
   ]
 }

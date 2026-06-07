@@ -30,8 +30,8 @@ class MugshotStage extends Stage
     buildingBackdrop.zIndex = 2;
     buildingBackdrop.velocity.x = -25000;
 
-    PlayState.instance.currentStage.add(buildingBackdrop);
-    PlayState.instance.currentStage.refresh();
+    add(buildingBackdrop);
+    refresh();
 
     roadBackdrop = new FlxBackdrop(Paths.image('stages/mugshot/minusdoorloopstreet'), 0x01);
     roadBackdrop.setPosition(-2900,-300);
@@ -40,8 +40,8 @@ class MugshotStage extends Stage
     roadBackdrop.zIndex = 3;
     roadBackdrop.velocity.x = -25000;
 
-    PlayState.instance.currentStage.add(roadBackdrop);
-    PlayState.instance.currentStage.refresh();
+    add(roadBackdrop);
+    refresh();
   }
 
   function fetchAssetPaths():Array<String>

@@ -1,72 +1,452 @@
 {
- "version": "2.0.0",
- "scrollSpeed": {
-  "hard": 2.4
- },
- "events": [
-  {
-   "t": 13714.2857142857,
-   "e": "FocusCamera",
-   "v": {
-	"x": 0,
-	"duration": 4,
-	"y": 0,
-	"char": 1,
-	"ease": "CLASSIC",
-	"easeDir": "In"
-}
-  },
-  {
-   "t": 20571.4285714286,
-   "e": "FocusCamera",
-   "v": {
-	"x": 0,
-	"duration": 4,
-	"y": 0,
-	"char": 0,
-	"ease": "CLASSIC",
-	"easeDir": "In"
-}
-  },
-  {
-   "t": 27428.5714285714,
-   "e": "FocusCamera",
-   "v": {
-	"x": 0,
-	"duration": 4,
-	"y": 0,
-	"char": 1,
-	"ease": "CLASSIC",
-	"easeDir": "In"
-}
-  },
-  {
-   "t": 34285.7142857143,
-   "e": "FocusCamera",
-   "v": {
-	"x": 0,
-	"duration": 4,
-	"y": 0,
-	"char": 0,
-	"ease": "CLASSIC",
-	"easeDir": "In"
-}
-  },
-  {
-   "t": 41142.8571428571,
-   "e": "FocusCamera",
-   "v": {
-	"x": 0,
-	"duration": 4,
-	"y": 0,
-	"char": 1,
-	"ease": "CLASSIC",
-	"easeDir": "In"
-}
-  }
- ],
- "notes": {
-  "hard": []
- },
- "generatedBy": "Friday Night Funkin' - v0.8.4"
+	"version": "2.0.0",
+	"scrollSpeed": {},
+	"events": [
+		{
+			"t": 0,
+			"e": "FocusCamera",
+			"v": {
+				"char": -1,
+				"duration": 4,
+				"ease": "INSTANT",
+				"easeDir": "In",
+				"x": 0,
+				"y": -2000
+			},
+			"_layer": "FocusCamera 1"
+		},
+		{
+			"t": 0,
+			"e": "ZoomCamera",
+			"v": {
+				"duration": 7,
+				"ease": "INSTANT",
+				"easeDir": "In",
+				"mode": "stage",
+				"widescreenScaleX": 0,
+				"widescreenScaleY": 0,
+				"zoom": 3
+			},
+			"_layer": "ZoomCamera 1"
+		},
+		{
+			"t": 428.571428571428,
+			"e": "FocusCamera",
+			"v": {
+				"char": 0,
+				"duration": 60,
+				"ease": "quad",
+				"easeDir": "InOut",
+				"x": 0,
+				"y": 0
+			},
+			"_layer": "FocusCamera 2"
+		},
+		{
+			"t": 428.571428571428,
+			"e": "ZoomCamera",
+			"v": {
+				"duration": 60,
+				"ease": "quad",
+				"easeDir": "InOut",
+				"mode": "stage",
+				"widescreenScaleX": 0,
+				"widescreenScaleY": 0,
+				"zoom": 1.4
+			},
+			"_layer": "ZoomCamera 2"
+		},
+		{
+			"t": 6857.14285714286,
+			"e": "FocusCamera",
+			"v": {
+				"char": 1,
+				"duration": 16,
+				"ease": "sine",
+				"easeDir": "Out",
+				"x": 1000,
+				"y": 0
+			},
+			"_layer": "FocusCamera 1"
+		},
+		{
+			"t": 6857.14285714286,
+			"e": "ZoomCamera",
+			"v": {
+				"duration": 16,
+				"ease": "sine",
+				"easeDir": "Out",
+				"mode": "stage",
+				"widescreenScaleX": 0,
+				"widescreenScaleY": 0,
+				"zoom": 0.9
+			},
+			"_layer": "ZoomCamera 1"
+		},
+		{
+			"t": 12000,
+			"e": "ZoomCamera",
+			"v": {
+				"duration": 4,
+				"ease": "INSTANT",
+				"easeDir": "In",
+				"mode": "stage",
+				"widescreenScaleX": 0,
+				"widescreenScaleY": 0,
+				"zoom": 1
+			},
+			"_layer": "ZoomCamera 1"
+		},
+		{
+			"t": 12428.5714285714,
+			"e": "ZoomCamera",
+			"v": {
+				"duration": 4,
+				"ease": "INSTANT",
+				"easeDir": "In",
+				"mode": "stage",
+				"widescreenScaleX": 0,
+				"widescreenScaleY": 0,
+				"zoom": 1.1
+			},
+			"_layer": "ZoomCamera 2"
+		},
+		{
+			"t": 12857.1428571429,
+			"e": "ZoomCamera",
+			"v": {
+				"duration": 4,
+				"ease": "INSTANT",
+				"easeDir": "In",
+				"mode": "stage",
+				"widescreenScaleX": 0,
+				"widescreenScaleY": 0,
+				"zoom": 1.2
+			},
+			"_layer": "ZoomCamera 1"
+		},
+		{
+			"t": 13285.7142857143,
+			"e": "ZoomCamera",
+			"v": {
+				"duration": 4,
+				"ease": "INSTANT",
+				"easeDir": "In",
+				"mode": "stage",
+				"widescreenScaleX": 0,
+				"widescreenScaleY": 0,
+				"zoom": 1.3
+			},
+			"_layer": "ZoomCamera 2"
+		},
+		{
+			"t": 13714.2857142857,
+			"e": "FocusCamera",
+			"v": {
+				"char": 1,
+				"duration": 4,
+				"ease": "INSTANT",
+				"easeDir": "In",
+				"x": 0,
+				"y": 0
+			},
+			"_layer": "FocusCamera 1"
+		},
+		{
+			"t": 13714.2857142857,
+			"e": "ZoomCamera",
+			"v": {
+				"duration": 4,
+				"ease": "INSTANT",
+				"easeDir": "In",
+				"mode": "stage",
+				"widescreenScaleX": 0,
+				"widescreenScaleY": 0,
+				"zoom": 1.75
+			},
+			"_layer": "ZoomCamera 1"
+		},
+		{
+			"t": 17142.8571428571,
+			"e": "FocusCamera",
+			"v": {
+				"char": 0,
+				"duration": 4,
+				"ease": "INSTANT",
+				"easeDir": "In",
+				"x": 0,
+				"y": 0
+			},
+			"_layer": "FocusCamera 1"
+		},
+		{
+			"t": 20571.4285714286,
+			"e": "FocusCamera",
+			"v": {
+				"char": 1,
+				"duration": 4,
+				"ease": "INSTANT",
+				"easeDir": "In",
+				"x": 0,
+				"y": 0
+			},
+			"_layer": "FocusCamera 1"
+		},
+		{
+			"t": 22285.7142857143,
+			"e": "FocusCamera",
+			"v": {
+				"char": 0,
+				"duration": 4,
+				"ease": "INSTANT",
+				"easeDir": "In",
+				"x": 0,
+				"y": 0
+			},
+			"_layer": "FocusCamera 1"
+		},
+		{
+			"t": 24000,
+			"e": "FocusCamera",
+			"v": {
+				"char": 1,
+				"duration": 4,
+				"ease": "INSTANT",
+				"easeDir": "In",
+				"x": 0,
+				"y": 0
+			},
+			"_layer": "FocusCamera 1"
+		},
+		{
+			"t": 24857.1428571429,
+			"e": "FocusCamera",
+			"v": {
+				"char": 0,
+				"duration": 4,
+				"ease": "INSTANT",
+				"easeDir": "In",
+				"x": 0,
+				"y": 0
+			},
+			"_layer": "FocusCamera 1"
+		},
+		{
+			"t": 25714.2857142857,
+			"e": "FocusCamera",
+			"v": {
+				"char": 1,
+				"duration": 4,
+				"ease": "INSTANT",
+				"easeDir": "In",
+				"x": 0,
+				"y": 0
+			},
+			"_layer": "FocusCamera 1"
+		},
+		{
+			"t": 26142.8571428571,
+			"e": "FocusCamera",
+			"v": {
+				"char": 0,
+				"duration": 4,
+				"ease": "INSTANT",
+				"easeDir": "In",
+				"x": 0,
+				"y": 0
+			},
+			"_layer": "FocusCamera 2"
+		},
+		{
+			"t": 26571.4285714286,
+			"e": "FocusCamera",
+			"v": {
+				"char": 1,
+				"duration": 2,
+				"ease": "INSTANT",
+				"easeDir": "In",
+				"x": 0,
+				"y": 0
+			},
+			"_layer": "FocusCamera 1"
+		},
+		{
+			"t": 26785.7142857143,
+			"e": "FocusCamera",
+			"v": {
+				"char": 0,
+				"duration": 4,
+				"ease": "INSTANT",
+				"easeDir": "In",
+				"x": 0,
+				"y": 0
+			},
+			"_layer": "FocusCamera 2"
+		},
+		{
+			"t": 27000,
+			"e": "FocusCamera",
+			"v": {
+				"char": 1,
+				"duration": 2,
+				"ease": "INSTANT",
+				"easeDir": "In",
+				"x": 0,
+				"y": 0
+			},
+			"_layer": "FocusCamera 3"
+		},
+		{
+			"t": 27214.2857142857,
+			"e": "FocusCamera",
+			"v": {
+				"char": 0,
+				"duration": 4,
+				"ease": "INSTANT",
+				"easeDir": "In",
+				"x": 0,
+				"y": 0
+			},
+			"_layer": "FocusCamera 1"
+		},
+		{
+			"t": 27428.5714285714,
+			"e": "ZoomCamera",
+			"v": {
+				"duration": 8,
+				"ease": "cube",
+				"easeDir": "Out",
+				"mode": "stage",
+				"widescreenScaleX": 0,
+				"widescreenScaleY": 0,
+				"zoom": 1
+			},
+			"_layer": "ZoomCamera 1"
+		},
+		{
+			"t": 68571.4285714286,
+			"e": "FocusCamera",
+			"v": {
+				"char": -1,
+				"duration": 4,
+				"ease": "CLASSIC",
+				"easeDir": "In",
+				"x": -200,
+				"y": -300
+			},
+			"_layer": "FocusCamera 1"
+		},
+		{
+			"t": 68571.4285714286,
+			"e": "ZoomCamera",
+			"v": {
+				"duration": 4,
+				"ease": "linear",
+				"easeDir": "In",
+				"mode": "stage",
+				"widescreenScaleX": 0,
+				"widescreenScaleY": 0,
+				"zoom": 0.9
+			},
+			"_layer": "ZoomCamera 1"
+		},
+		{
+			"t": 75428.5714285714,
+			"e": "FocusCamera",
+			"v": {
+				"char": 1,
+				"duration": 4,
+				"ease": "CLASSIC",
+				"easeDir": "In",
+				"x": 0,
+				"y": 0
+			},
+			"_layer": "FocusCamera 1"
+		},
+		{
+			"t": 75428.5714285714,
+			"e": "ZoomCamera",
+			"v": {
+				"duration": 4,
+				"ease": "sine",
+				"easeDir": "InOut",
+				"mode": "stage",
+				"widescreenScaleX": 0,
+				"widescreenScaleY": 0,
+				"zoom": 1.9
+			},
+			"_layer": "ZoomCamera 1"
+		},
+		{
+			"t": 82285.7142857143,
+			"e": "FocusCamera",
+			"v": {
+				"char": 0,
+				"duration": 4,
+				"ease": "CLASSIC",
+				"easeDir": "In",
+				"x": 0,
+				"y": 0
+			},
+			"_layer": "FocusCamera 1"
+		},
+		{
+			"t": 137142.857142857,
+			"e": "FocusCamera",
+			"v": {
+				"char": -1,
+				"duration": 64,
+				"ease": "quad",
+				"easeDir": "InOut",
+				"x": 0,
+				"y": -2000
+			},
+			"_layer": "FocusCamera 1"
+		},
+		{
+			"t": 137142.857142857,
+			"e": "ZoomCamera",
+			"v": {
+				"duration": 64,
+				"ease": "quad",
+				"easeDir": "InOut",
+				"mode": "stage",
+				"widescreenScaleX": 0,
+				"widescreenScaleY": 0,
+				"zoom": 3
+			},
+			"_layer": "ZoomCamera 1"
+		},
+		{
+			"t": 130285.714285714,
+			"e": "FocusCamera",
+			"v": {
+				"char": 1,
+				"duration": 16,
+				"ease": "sine",
+				"easeDir": "Out",
+				"x": 1000,
+				"y": 0
+			},
+			"_layer": "FocusCamera 1"
+		},
+		{
+			"t": 130285.714285714,
+			"e": "ZoomCamera",
+			"v": {
+				"duration": 16,
+				"ease": "sine",
+				"easeDir": "Out",
+				"mode": "stage",
+				"widescreenScaleX": 0,
+				"widescreenScaleY": 0,
+				"zoom": 0.9
+			},
+			"_layer": "ZoomCamera 1"
+		}
+	],
+	"notes": {
+		"hard": []
+	},
+	"generatedBy": "Friday Night Funkin' - v0.8.5"
 }
