@@ -1,26 +1,57 @@
 {
   "version": "1.0.0",
   "name": "Mugshot",
-  "cameraZoom": 0.5,
+  "cameraZoom": 0.45,
   "props": [
     {
       "zIndex": 1,
-      "position": [-2500,-1500],
-      "scale": [2, 2],
-      "name": "stageBack",
+      "position": [-2800,-2400],
+      "scale": [2.5, 2.5],
+      "name": "sky",
       "assetPath": "stages/mugshot/minusdoorsky",
-      "scroll": [0.9, 0.9]
+      "scroll": [0.8, 0.8]
+    },
+    {
+      "zIndex": 4,
+      "danceEvery": 0,
+      "position": [-2200,-250],
+      "scale": [1.2, 1.2],
+      "name": "minusCar",
+      "animType": "sparrow",
+      "isPixel": false,
+      "startingAnimation": "drive",
+      "scroll": [1, 1],
+      "assetPath": "stages/mugshot/minus d2dds car",
+      "animations": [
+        {
+          "offsets": [0, 0],
+          "flipY": false,
+          "frameRate": 24,
+          "prefix": "minus d2dds car0",
+          "name": "drive",
+          "looped": true,
+          "flipX": false
+        }
+      ]
+    },
+    {
+      "zIndex": 5,
+      "position": [-400,-200],
+      "scale": [1.2, 1.2],
+      "name": "doorCar",
+      "assetPath": "stages/mugshot/d2dds car",
+      "scroll": [1, 1]
     }
   ],
   "characters": {
     "bf": {
-      "zIndex": 3,
+      "zIndex": 90,
       "position": [800, 0],
       "cameraOffsets": [0, 0]
     },
     "dad": {
-      "zIndex": 3,
-      "position": [-800, 0],
+      "zIndex": 90,
+      "position": [-1300, 120],
       "cameraOffsets": [0, 0]
     },
     "gf": {

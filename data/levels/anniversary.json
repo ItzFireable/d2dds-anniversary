@@ -3,42 +3,41 @@
     "name": "D2DDS ANNIVERSARY",
     "titleAsset": "storymenu/titles/week0",
     "background": "#B78A60",
+    "capsule": {
+        "name": "D2DDS"
+    },
     "songs": [
         "mugshot"
     ],
     "visible": true,
     "props": [
         {
-            "assetPath": "storymenu/props/dad",
-            "scale": 1.0,
+            "assetPath": "storymenu/props/d2dds",
+            "scale": 0.6,
             "offsets": [
-                100,
-                60
+                -50,
+                -260
             ],
             "animations": [
                 {
                     "name": "idle",
-                    "prefix": "idle0",
+                    "prefix": "scam idle0",
                     "frameRate": 24
                 }
             ]
         },
         {
-            "assetPath": "storymenu/props/bf",
-            "scale": 1.0,
+            "assetPath": "storymenu/props/d2dds",
+            "scale": 0.6,
+            "flipX": true,
             "offsets": [
-                150,
-                80
+                450,
+                -260
             ],
             "animations": [
                 {
                     "name": "idle",
-                    "prefix": "idle0",
-                    "frameRate": 24
-                },
-                {
-                    "name": "confirm",
-                    "prefix": "confirm0",
+                    "prefix": "scam idle0",
                     "frameRate": 24
                 }
             ]

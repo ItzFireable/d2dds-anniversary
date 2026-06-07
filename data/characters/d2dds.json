@@ -4,6 +4,7 @@
   "renderType": "sparrow",
   "assetPath": "characters/d2dds sprites",
   "singTime": 8.0,
+  "flipX": true,
   "animations": [
     {
       "name": "idle",

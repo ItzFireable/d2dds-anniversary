@@ -3,7 +3,68 @@
  "scrollSpeed": {
   "hard": 2.4
  },
- "events": [],
+ "events": [
+  {
+   "t": 13714.2857142857,
+   "e": "FocusCamera",
+   "v": {
+	"x": 0,
+	"duration": 4,
+	"y": 0,
+	"char": 1,
+	"ease": "CLASSIC",
+	"easeDir": "In"
+}
+  },
+  {
+   "t": 20571.4285714286,
+   "e": "FocusCamera",
+   "v": {
+	"x": 0,
+	"duration": 4,
+	"y": 0,
+	"char": 0,
+	"ease": "CLASSIC",
+	"easeDir": "In"
+}
+  },
+  {
+   "t": 27428.5714285714,
+   "e": "FocusCamera",
+   "v": {
+	"x": 0,
+	"duration": 4,
+	"y": 0,
+	"char": 1,
+	"ease": "CLASSIC",
+	"easeDir": "In"
+}
+  },
+  {
+   "t": 34285.7142857143,
+   "e": "FocusCamera",
+   "v": {
+	"x": 0,
+	"duration": 4,
+	"y": 0,
+	"char": 0,
+	"ease": "CLASSIC",
+	"easeDir": "In"
+}
+  },
+  {
+   "t": 41142.8571428571,
+   "e": "FocusCamera",
+   "v": {
+	"x": 0,
+	"duration": 4,
+	"y": 0,
+	"char": 1,
+	"ease": "CLASSIC",
+	"easeDir": "In"
+}
+  }
+ ],
  "notes": {
   "hard": []
  },

@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "name": "D2DDS",
+  "artists": ["GDD"],
+  "albumArtAsset": "freeplay/albumRoll/d2dds",
+  "albumTitleAsset": "freeplay/albumRoll/spaghetti-text",
+  "albumTitleOffsets": [-35, -5]
+}
