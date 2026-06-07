@@ -3,6 +3,6 @@
   "name": "D2DDS",
   "artists": ["GDD"],
   "albumArtAsset": "freeplay/albumRoll/d2dds",
-  "albumTitleAsset": "freeplay/albumRoll/spaghetti-text",
-  "albumTitleOffsets": [-35, -5]
+  "albumTitleAsset": "freeplay/albumRoll/d2dds-text",
+  "albumTitleOffsets": [-120, -15]
 }
