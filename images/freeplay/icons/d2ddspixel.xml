@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="d2ddspixel.png" width="107" height="59">
+	<SubTexture name="idle0000" x="8" y="8" width="44" height="43" frameX="-3" frameY="-4" frameWidth="52" frameHeight="52"/>
+	<SubTexture name="confirm0000" x="60" y="8" width="39" height="41" frameX="-8" frameY="-4" frameWidth="52" frameHeight="52"/>
+	<SubTexture name="confirm-hold0000" x="60" y="8" width="39" height="41" frameX="-8" frameY="-4" frameWidth="52" frameHeight="52"/>
+</TextureAtlas>

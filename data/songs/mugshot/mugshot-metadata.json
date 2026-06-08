@@ -1,38 +1,44 @@
 {
- "version": "2.2.4",
- "songName": "Mugshot",
- "artist": "GDD",
- "charter": "GDD",
- "offsets": { },
- "playData": {
-  "difficulties": [
-   "hard"
-  ],
-  "characters": {
-   "player": "d2dds",
-   "girlfriend": "gf",
-   "opponent": "minus-d2dds",
-   "opponentVocals": [
-    "minus-d2dds"
-   ],
-   "playerVocals": [
-    "d2dds"
-   ]
-  },
-  "stage": "mugshot",
-  "noteStyle": "funkin",
-  "ratings": {
-   "hard": 7
-  },
-  "album": "d2dds"
- },
- "generatedBy": "Friday Night Funkin' - v0.8.4",
- "timeChanges": [
-  {
-   "t": 0,
-   "b": 0,
-   "bpm": 140,
-   "bt": [4, 4, 4, 4]
-  }
- ]
+    "version": "2.2.4",
+    "songName": "Mugshot",
+    "artist": "GDD",
+    "charter": "GDD",
+    "offsets": {},
+    "playData": {
+        "difficulties": [
+            "hard"
+        ],
+        "characters": {
+            "player": "d2dds",
+            "girlfriend": "gf",
+            "opponent": "minus-d2dds",
+            "opponentVocals": [
+                "minus-d2dds"
+            ],
+            "playerVocals": [
+                "d2dds"
+            ]
+        },
+        "stage": "mugshot",
+        "noteStyle": "funkin",
+        "stickerPack": "d2dds",
+        "ratings": {
+            "hard": 7
+        },
+        "album": "d2dds"
+    },
+    "generatedBy": "Friday Night Funkin' - v0.8.4",
+    "timeChanges": [
+        {
+            "t": 0,
+            "b": 0,
+            "bpm": 140,
+            "bt": [
+                4,
+                4,
+                4,
+                4
+            ]
+        }
+    ]
 }

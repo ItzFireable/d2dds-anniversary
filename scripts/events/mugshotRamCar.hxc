@@ -1,0 +1,24 @@
+import funkin.play.event.ScriptedSongEvent;
+
+class MugshotRamCar extends ScriptedSongEvent
+{
+  function new()
+  {
+    super('mugshotRamCar');
+  }
+
+  override public function handleEvent(data:SongEventData):Void
+  {
+    super.handleEvent(data);
+  }
+
+  override public function getTitle():String
+  {
+    return 'Mugshot Ram Car';
+  }
+
+  override public function getEventSchema():SongEventSchema
+  {
+    return null;
+  }
+}

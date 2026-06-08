@@ -10,6 +10,7 @@ import funkin.util.HapticUtil;
 import funkin.util.Sequence;
 import funkin.FunkinMemory;
 
+import flixel.math.FlxPoint;
 import flixel.util.FlxTimer;
 import flixel.util.FlxColor;
 import flixel.tweens.FlxTween;
@@ -20,6 +21,12 @@ import funkin.play.components.PopUpStuff;
 class MugshotStage extends Stage
 {
   static var TWEEN_DURATION:Float = 6.0;
+
+  var canShake:Bool = true;
+  var ratingPoint:FlxPoint = new FlxPoint(-100, 0);
+
+  // array of beats for duet starts and ends, in pairs of [startBeat, endBeat]
+  var duetSections:Array<Array<Int>> = [[160, 176], [240, 308]];
 
   function new()
   {
@@ -56,9 +63,9 @@ class MugshotStage extends Stage
     PlayState.instance.comboPopUps.memberAdded.add(function(sprite:FunkinSprite)
     {
       sprite.scale.set(0.5, 0.5);
-      sprite.x -= 100;
+      sprite.x += ratingPoint.x;
       sprite.velocity.x = -100;
-      sprite.acceleration.x = -2000;
+      sprite.acceleration.x = -1500;
     });
 
     refresh();
@@ -85,7 +92,8 @@ class MugshotStage extends Stage
   {
     super.onUpdate(event);
 
-    PlayState.instance.camGame.shake(0.003, 0.2);
+    if (canShake)
+      PlayState.instance.camGame.shake(0.003, 0.2);
   }
 
   public override function onBeatHit(event:SongTimeScriptEvent)
@@ -100,6 +108,53 @@ class MugshotStage extends Stage
       case 308:
         FlxTween.tween(getNamedProp('minusCar'), {x: -5200}, TWEEN_DURATION / 1.5, {ease: FlxEase.quadIn});
         FlxTween.tween(PlayState.instance.currentStage.getOpponent(), {x: -5100}, TWEEN_DURATION / 1.5, {ease: FlxEase.quadIn});
+    }
+
+    // handle duet section rating repositioning
+    for (duetSection in duetSections)
+    {
+      if (event.beat == duetSection[0])
+      {
+        ratingPoint.set(250, 0);
+        break;
+      }
+      else if (event.beat == duetSection[1])
+      {
+        ratingPoint.set(-100, 0);
+        break;
+      }
+    }
+  }
+
+  public override function onSongEvent(scriptEvent:SongEventScriptEvent)
+  {
+    super.onSongEvent(scriptEvent);
+
+    switch (scriptEvent.eventData.eventKind)
+    {
+      case 'Mugshot Ram Car':
+        FlxTween.tween(getNamedProp('minusCar'), {x: -5200}, TWEEN_DURATION / 4, {ease: FlxEase.quadIn});
+        FlxTween.tween(PlayState.instance.currentStage.getOpponent(), {x: -5100}, TWEEN_DURATION / 4, {ease: FlxEase.quadIn});
+
+        new FlxTimer().start(TWEEN_DURATION / 4, _ ->
+        {
+          FlxTween.tween(getNamedProp('minusCar'), {x: -2000}, TWEEN_DURATION / 32, {ease: FlxEase.quadlinearOut});
+          FlxTween.tween(PlayState.instance.currentStage.getOpponent(), {x: -1900}, TWEEN_DURATION / 32, {ease: FlxEase.linear});
+
+          new FlxTimer().start(TWEEN_DURATION / 32, _ ->
+          {
+            canShake = false;
+            PlayState.instance.camGame.shake(0.1, 0.2);
+
+            FlxTween.tween(getNamedProp('minusCar'), {x: -2200}, TWEEN_DURATION / 8, {ease: FlxEase.quadOut});
+            FlxTween.tween(PlayState.instance.currentStage.getOpponent(), {x: -2100}, TWEEN_DURATION / 8, {ease: FlxEase.quadOut});
+
+            new FlxTimer().start(0.2, _ ->
+            {
+              canShake = true;
+            });
+          });
+        });
     }
   }
 }
