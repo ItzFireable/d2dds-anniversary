@@ -2,6 +2,8 @@ import funkin.play.song.Song;
 import funkin.play.Countdown;
 import funkin.play.PlayState;
 import funkin.graphics.FunkinSprite;
+import funkin.play.cutscene.VideoCutscene;
+import funkin.graphics.video.FunkinVideoSprite;
 
 import flixel.FlxSprite;
 import flixel.util.FlxTimer;
@@ -13,7 +15,11 @@ class MugshotSong extends Song
 {
   var fade:FunkinSprite;
   var wasCancelled:Bool;
+  var hasDied:Bool = false;
+
   var canSkip:Bool = false;
+
+  var vid:Null<FunkinVideoSprite>;
 
   static var TWEEN_DURATION:Float = 2.0;
 
@@ -22,20 +28,11 @@ class MugshotSong extends Song
     super('mugshot');
   }
 
-  public override function onCreate(event:ScriptEvent):Void
+  function songStart(event:Null<ScriptEvent> = null)
   {
-    super.onCreate(event);
-
-    wasCancelled = false;
-    canSkip = false;
-  }
-
-  public override function onCountdownStart(event:CountdownScriptEvent):Void
-  {
-    super.onCountdownStart(event);
     if (wasCancelled) return;
 
-    event.cancel();
+    if (event != null) event.cancel();
     wasCancelled = true;
 
     PlayState.instance.camHUD.alpha = 0;
@@ -45,11 +42,43 @@ class MugshotSong extends Song
     fade = new FlxSprite(-1000, -1000).makeGraphic(FlxG.width * 6, FlxG.height * 6, FlxColor.BLACK);
     fade.scrollFactor.set(0, 0);
     fade.zIndex = 1000000;
+    
     PlayState.instance.add(fade);
     PlayState.instance.refresh();
     
     Countdown.skipCountdown();
     PlayState.instance.startSong();
+  }
+
+  public override function onCreate(event:ScriptEvent):Void
+  {
+    super.onCreate(event);
+
+    wasCancelled = false;
+    canSkip = false;
+    hasDied = false;
+  }
+
+  public override function onCountdownStart(event:CountdownScriptEvent):Void
+  {
+    super.onCountdownStart(event);
+    songStart(event);
+  }
+
+  public override function onGameOver(event:ScriptEvent)
+  {
+    if (hasDied) return;
+    hasDied = true;
+
+    event.cancel();
+    VideoCutscene.play('videos/crash.mp4');
+    VideoCutscene.onVideoEnded.addOnce(function()
+    {
+      PlayState.instance.needsReset = true;
+      wasCancelled = false;
+
+      songStart();
+    });
   }
 
   public override function onBeatHit(event:SongTimeScriptEvent)
@@ -64,11 +93,12 @@ class MugshotSong extends Song
         FlxTween.tween(PlayState.instance.camHUD, {alpha: 1.0}, TWEEN_DURATION, {ease: FlxEase.quadInOut});
       case 208:
         PlayState.instance.camHUD.alpha = 0;
-        PlayState.instance.startConversation('mugshot');
+        PlayState.instance.startConversation('mugshot'); // minus starts
       case 220:
-        PlayState.instance.currentConversation?.advanceConversation();
+        PlayState.instance.currentConversation?.advanceConversation(); // d2dds starts
+        PlayState.instance.currentConversation?.currentDialogueBox?.speed = 0.85;
       case 228:
-        PlayState.instance.currentConversation?.advanceConversation();
+        PlayState.instance.currentConversation?.advanceConversation(); // minus interrupts
       case 238:
         PlayState.instance.currentConversation?.advanceConversation();
         PlayState.instance.currentConversation?.advanceConversation(); // for good measure

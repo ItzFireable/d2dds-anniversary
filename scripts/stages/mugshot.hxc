@@ -36,6 +36,12 @@ class MugshotStage extends Stage
   var roadBackdrop:FlxBackdrop;
   var buildingBackdrop:FlxBackdrop;
 
+  public override function onGameOver(event:ScriptEvent)
+  {
+    canShake = false;
+    super.onGameOver(event);
+  }
+
   override function buildStage()
   {
     super.buildStage();

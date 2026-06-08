@@ -21,6 +21,10 @@
       "prefix": "d2dds up0"
     },
     {
+      "name": "singUPmiss",
+      "prefix": "d2dds up miss0"
+    },
+    {
       "name": "singUP-hold",
       "prefix": "d2dds up0",
       "frameIndices": [9, 10, 11, 12],
@@ -29,6 +33,10 @@
     {
       "name": "singDOWN",
       "prefix": "d2dds down0"
+    },
+    {
+      "name": "singDOWNmiss",
+      "prefix": "d2dds down miss0"
     },
     {
       "name": "singDOWN-hold",
@@ -41,6 +49,10 @@
       "prefix": "d2dds left0"
     },
     {
+      "name": "singLEFTmiss",
+      "prefix": "d2dds left miss0"
+    },
+    {
       "name": "singLEFT-hold",
       "prefix": "d2dds left0",
       "frameIndices": [9, 10, 11, 12],
@@ -49,6 +61,10 @@
     {
       "name": "singRIGHT",
       "prefix": "d2dds right0"
+    },
+    {
+      "name": "singRIGHTmiss",
+      "prefix": "d2dds right miss0"
     },
     {
       "name": "singRIGHT-hold",

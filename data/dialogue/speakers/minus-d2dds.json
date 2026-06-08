@@ -1,11 +1,11 @@
 {
   "version": "1.0.0",
   "name": "Minus D2DDS",
-  "assetPath": "dialogue/portrait-senpai",
+  "assetPath": "dialogue/portrait-minus-d2dds",
   "flipX": false,
-  "isPixel": true,
-  "scale": 5.4,
-  "offsets": [-488, -210],
+  "isPixel": false,
+  "scale": 0.4,
+  "offsets": [-50, 310],
   "animations": [
     {
       "name": "talkEnter",
@@ -14,7 +14,7 @@
     },
     {
       "name": "talk",
-      "prefix": "portraitTalk0"
+      "prefix": "portraitEnter0"
     }
   ]
 }
