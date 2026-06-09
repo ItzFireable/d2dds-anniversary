@@ -138,7 +138,7 @@ class MugshotStage extends Stage
 
     switch (scriptEvent.eventData.eventKind)
     {
-      case 'Mugshot Ram Car':
+      case 'mugshotRamCar':
         FlxTween.tween(getNamedProp('minusCar'), {x: -5200}, TWEEN_DURATION / 4, {ease: FlxEase.quadIn});
         FlxTween.tween(PlayState.instance.currentStage.getOpponent(), {x: -5100}, TWEEN_DURATION / 4, {ease: FlxEase.quadIn});
 

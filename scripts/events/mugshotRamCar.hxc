@@ -9,7 +9,7 @@ class MugshotRamCar extends ScriptedSongEvent
 
   override public function handleEvent(data:SongEventData):Void
   {
-    super.handleEvent(data);
+    // lmao nothing here
   }
 
   override public function getTitle():String
