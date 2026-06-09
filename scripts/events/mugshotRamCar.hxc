@@ -1,4 +1,7 @@
 import funkin.play.event.ScriptedSongEvent;
+import funkin.data.event.SongEventSchema;
+//import funkin.data.event.SongEventSchema.SongEventFieldType;
+//import funkin.modding.events.ScriptEvent.SongTimeScriptEvent;
 
 class MugshotRamCar extends ScriptedSongEvent
 {
@@ -19,6 +22,12 @@ class MugshotRamCar extends ScriptedSongEvent
 
   override public function getEventSchema():SongEventSchema
   {
-    return null;
+    return new SongEventSchema([{
+      name: 'focusCam',
+      title: 'Focus Camera on Minus',
+      type: SongEventFieldType.BOOL,
+      defaultValue: false
+
+    }]);
   }
 }

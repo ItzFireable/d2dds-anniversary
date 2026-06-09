@@ -49,7 +49,7 @@ class MugshotSong extends Song
     Countdown.skipCountdown();
     PlayState.instance.startSong();
 
-    PlayState.instance.isBotPlayMode = true;
+    //PlayState.instance.isBotPlayMode = true;
   }
 
   public override function onCreate(event:ScriptEvent):Void

@@ -17,10 +17,17 @@ import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
 
 import funkin.play.components.PopUpStuff;
+import funkin.Conductor;
 
 class MugshotStage extends Stage
 {
   static var TWEEN_DURATION:Float = 6.0;
+  //used to make sure the camera is focused on minus during the ramming ( ͡° ͜ʖ ͡°)
+  var isRamming:Bool = false;
+  var minusPoint:FlxPoint = new FlxPoint();
+  var shouldFocusMinus:Bool = false;
+  //map of beats to both trigger the ram and whether or not to focus on minus during the ram (true means focus on minus, false means keep normal camera focus)
+  var ramBeats:Map<Int, Bool> = [92 => true, 156 => false, 236 => false, 252 => false, 284 => false];
 
   var canShake:Bool = true;
   var ratingPoint:FlxPoint = new FlxPoint(-100, 0);
@@ -99,7 +106,15 @@ class MugshotStage extends Stage
     super.onUpdate(event);
 
     if (canShake)
-      PlayState.instance.camGame.shake(0.003, 0.2);
+      PlayState.instance.camGame?.shake(0.003, 0.2);
+
+    if (isRamming)
+    {
+      //TODO: do the thingy to make the camera track minus!!!
+      //minusPoint.set(PlayState.instance.currentStage.getOpponent().cameraFocusPoint);
+      var opponent = PlayState.instance.currentStage.getOpponent();
+      PlayState.instance.tweenCameraToPosition(opponent.cameraFocusPoint.x + 250, opponent.cameraFocusPoint.y, 0);
+    }
   }
 
   public override function onBeatHit(event:SongTimeScriptEvent)
@@ -110,10 +125,10 @@ class MugshotStage extends Stage
     {
       case 20:
         FlxTween.tween(getNamedProp('minusCar'), {x: -2200}, TWEEN_DURATION / 2, {ease: FlxEase.quadOut});
-        FlxTween.tween(PlayState.instance.currentStage.getOpponent(), {x: -2100}, TWEEN_DURATION / 2, {ease: FlxEase.quadOut});
+        FlxTween.tween(PlayState.instance.currentStage?.getOpponent(), {x: -2100}, TWEEN_DURATION / 2, {ease: FlxEase.quadOut});
       case 308:
         FlxTween.tween(getNamedProp('minusCar'), {x: -5200}, TWEEN_DURATION / 1.5, {ease: FlxEase.quadIn});
-        FlxTween.tween(PlayState.instance.currentStage.getOpponent(), {x: -5100}, TWEEN_DURATION / 1.5, {ease: FlxEase.quadIn});
+        FlxTween.tween(PlayState.instance.currentStage?.getOpponent(), {x: -5100}, TWEEN_DURATION / 1.5, {ease: FlxEase.quadIn});
     }
 
     // handle duet section rating repositioning
@@ -130,6 +145,58 @@ class MugshotStage extends Stage
         break;
       }
     }
+
+    for (beat in ramBeats.keys())
+    {
+      if (event.beat == beat)
+      {
+        shouldFocusMinus = ramBeats[beat];
+        ramThatFuckingRatBastardScammerGodIHateHisAssSoFuckingMuch();
+        break;
+      }
+    }
+  }
+
+  //yes this is the actual name of the function, no i'm not fucking changing it, fuck you -gdd
+  function ramThatFuckingRatBastardScammerGodIHateHisAssSoFuckingMuch()
+  {
+    //length of a beat in seconds, i miss my wife tails. i miss her a lot.
+        var beatLength:Float = Conductor.instance.get_beatLengthMs() / 1000;
+        if (shouldFocusMinus)
+          isRamming = true;
+        //minus car goes back
+        FlxTween.tween(getNamedProp('minusCar'), {x: -5200}, beatLength * 3, {ease: FlxEase.quadIn});
+        FlxTween.tween(PlayState.instance.currentStage?.getOpponent(), {x: -5100}, beatLength * 3, {ease: FlxEase.quadIn});
+
+        //NYOOOOOOOOOMS forward for attempted vehicular manslaughter
+        new FlxTimer().start(beatLength * 3, _ ->
+        {
+          FlxTween.tween(getNamedProp('minusCar'), {x: -2000}, beatLength, {ease: FlxEase.quadlinearOut});
+          FlxTween.tween(PlayState.instance.currentStage?.getOpponent(), {x: -1900}, beatLength, {ease: FlxEase.linear});
+
+          // hit the shake! (also kills the player (not really but it hurts them))
+          //this should happen on the beat (aka everything else should be timed to lead up to the beat so the event can be scheduled exactly one beat before the impact)
+          new FlxTimer().start(beatLength, _ ->
+          {
+            canShake = false;
+            PlayState.instance.camGame?.shake(0.1, 0.2);
+            /*
+            * oh hey, i'm at the health store! i sure hope they have-
+            * we outta health.
+            * huh?
+            */
+            PlayState.instance.health -= 0.6;
+            FlxTween.tween(getNamedProp('minusCar'), {x: -2200}, beatLength, {ease: FlxEase.quadOut});
+            FlxTween.tween(PlayState.instance.currentStage?.getOpponent(), {x: -2100}, beatLength, {ease: FlxEase.quadOut});
+
+            new FlxTimer().start(0.2, _ ->
+            {
+              canShake = true;
+              if (shouldFocusMinus)
+                isRamming = false;
+            });
+          });
+        });
   }
 
   public override function onSongEvent(scriptEvent:SongEventScriptEvent)
@@ -139,28 +206,7 @@ class MugshotStage extends Stage
     switch (scriptEvent.eventData.eventKind)
     {
       case 'mugshotRamCar':
-        FlxTween.tween(getNamedProp('minusCar'), {x: -5200}, TWEEN_DURATION / 4, {ease: FlxEase.quadIn});
-        FlxTween.tween(PlayState.instance.currentStage.getOpponent(), {x: -5100}, TWEEN_DURATION / 4, {ease: FlxEase.quadIn});
-
-        new FlxTimer().start(TWEEN_DURATION / 4, _ ->
-        {
-          FlxTween.tween(getNamedProp('minusCar'), {x: -2000}, TWEEN_DURATION / 32, {ease: FlxEase.quadlinearOut});
-          FlxTween.tween(PlayState.instance.currentStage.getOpponent(), {x: -1900}, TWEEN_DURATION / 32, {ease: FlxEase.linear});
-
-          new FlxTimer().start(TWEEN_DURATION / 32, _ ->
-          {
-            canShake = false;
-            PlayState.instance.camGame.shake(0.1, 0.2);
-
-            FlxTween.tween(getNamedProp('minusCar'), {x: -2200}, TWEEN_DURATION / 8, {ease: FlxEase.quadOut});
-            FlxTween.tween(PlayState.instance.currentStage.getOpponent(), {x: -2100}, TWEEN_DURATION / 8, {ease: FlxEase.quadOut});
-
-            new FlxTimer().start(0.2, _ ->
-            {
-              canShake = true;
-            });
-          });
-        });
+        
     }
   }
 }
