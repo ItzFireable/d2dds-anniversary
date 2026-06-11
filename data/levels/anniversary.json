@@ -9,7 +9,7 @@
     "songs": [
         "mugshot"
     ],
-    "visible": true,
+    "visible": false,
     "props": [
         {
             "assetPath": "storymenu/props/d2dds",
