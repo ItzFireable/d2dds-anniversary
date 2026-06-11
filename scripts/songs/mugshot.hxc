@@ -39,9 +39,11 @@ class MugshotSong extends Song
     PlayState.instance.isInCutscene = false;
     PlayState.instance.isInCountdown = true;
 
-    fade = new FlxSprite(-1000, -1000).makeGraphic(FlxG.width * 6, FlxG.height * 6, FlxColor.BLACK);
-    fade.scrollFactor.set(0, 0);
-    fade.zIndex = 1000000;
+    if (fade == null) {
+      fade = new FlxSprite(-1000, -1000).makeGraphic(FlxG.width * 8, FlxG.height * 8, FlxColor.BLACK);
+      fade.scrollFactor.set(0, 0);
+      fade.zIndex = 1000000;
+    }
     
     PlayState.instance.add(fade);
     PlayState.instance.refresh();
@@ -54,17 +56,36 @@ class MugshotSong extends Song
 
   public override function onCreate(event:ScriptEvent):Void
   {
-    super.onCreate(event);
-
     wasCancelled = false;
     canSkip = false;
     hasDied = false;
+
+    super.onCreate(event);
   }
 
   public override function onCountdownStart(event:CountdownScriptEvent):Void
   {
-    super.onCountdownStart(event);
     songStart(event);
+    super.onCountdownStart(event);
+  }
+
+  public override function onSongRetry(event:ScriptEvent)
+  {
+    wasCancelled = false;
+
+    FlxTween.cancelTweensOf(fade);
+    fade?.alpha = 1;
+
+    PlayState.instance.camHUD.alpha = 0;
+
+    // im too lazy to figure out a way to kill it
+    PlayState.instance.currentConversation?.advanceConversation();
+    PlayState.instance.currentConversation?.advanceConversation();
+    PlayState.instance.currentConversation?.advanceConversation();
+    PlayState.instance.currentConversation?.advanceConversation();
+    PlayState.instance.currentConversation?.advanceConversation();
+
+    super.onSongRetry(event);
   }
 
   public override function onGameOver(event:ScriptEvent)
@@ -85,8 +106,6 @@ class MugshotSong extends Song
 
   public override function onBeatHit(event:SongTimeScriptEvent)
   {
-    super.onBeatHit(event);
-
     switch(event.beat)
     {
       case 4:
@@ -110,5 +129,7 @@ class MugshotSong extends Song
       case 328:
         FlxTween.tween(fade, {alpha: 1.0}, TWEEN_DURATION * 1.5, {ease: FlxEase.quadInOut});
     }
+
+    super.onBeatHit(event);
   }
 }
