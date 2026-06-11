@@ -53,27 +53,31 @@ class MugshotStage extends Stage
   {
     super.buildStage();
 
-    buildingBackdrop = new FlxBackdrop(Paths.image('stages/mugshot/minusdoorbuildings'), 0x01);
-    buildingBackdrop.setPosition(-2900,-750);
-    buildingBackdrop.scrollFactor.set(0.9, 0.9);
-    buildingBackdrop.scale.set(2.5, 2.5);
-    buildingBackdrop.zIndex = 2;
-    buildingBackdrop.velocity.x = -25000;
+    if (buildingBackdrop == null) {
+      buildingBackdrop = new FlxBackdrop(Paths.image('stages/mugshot/minusdoorbuildings'), 0x01);
+      buildingBackdrop.setPosition(-2900,-750);
+      buildingBackdrop.scrollFactor.set(0.9, 0.9);
+      buildingBackdrop.scale.set(2.5, 2.5);
+      buildingBackdrop.zIndex = 2;
+      buildingBackdrop.velocity.x = -25000;
+    }
 
     add(buildingBackdrop);
     refresh();
 
-    roadBackdrop = new FlxBackdrop(Paths.image('stages/mugshot/minusdoorloopstreet'), 0x01);
-    roadBackdrop.setPosition(-2900,-300);
-    roadBackdrop.scrollFactor.set(0.9, 0.9);
-    roadBackdrop.scale.set(2.5, 2.5);
-    roadBackdrop.zIndex = 3;
-    roadBackdrop.velocity.x = -25000;
+    if (roadBackdrop == null) {
+      roadBackdrop = new FlxBackdrop(Paths.image('stages/mugshot/minusdoorloopstreet'), 0x01);
+      roadBackdrop.setPosition(-2900,-300);
+      roadBackdrop.scrollFactor.set(0.9, 0.9);
+      roadBackdrop.scale.set(2.5, 2.5);
+      roadBackdrop.zIndex = 3;
+      roadBackdrop.velocity.x = -25000;
+    }
 
     add(roadBackdrop);
 
-    PlayState.instance.comboPopUps.cameras = [PlayState.instance.camGame];
-    PlayState.instance.comboPopUps.memberAdded.add(function(sprite:FunkinSprite)
+    PlayState.instance.comboPopUps?.cameras = [PlayState.instance.camGame];
+    PlayState.instance.comboPopUps?.memberAdded.add(function(sprite:FunkinSprite)
     {
       sprite.scale.set(0.5, 0.5);
       sprite.x += ratingPoint.x;
@@ -95,16 +99,14 @@ class MugshotStage extends Stage
 
   public override function onCountdownStart(event:CountdownScriptEvent):Void
   {
-    super.onCountdownStart(event);
-
     getNamedProp('minusCar').x = -4200;
     PlayState.instance.currentStage.getOpponent().x = -4100;
+
+    super.onCountdownStart(event);
   }
 
   public override function onUpdate(event:UpdateScriptEvent):Void
   {
-    super.onUpdate(event);
-
     if (canShake)
       PlayState.instance.camGame?.shake(0.003, 0.2);
 
@@ -115,12 +117,12 @@ class MugshotStage extends Stage
       var opponent = PlayState.instance.currentStage.getOpponent();
       PlayState.instance.tweenCameraToPosition(opponent.cameraFocusPoint.x + 250, opponent.cameraFocusPoint.y, 0);
     }
+
+    super.onUpdate(event);
   }
 
   public override function onBeatHit(event:SongTimeScriptEvent)
   {
-    super.onBeatHit(event);
-
     switch(event.beat)
     {
       case 20:
@@ -155,6 +157,8 @@ class MugshotStage extends Stage
         break;
       }
     }
+
+    super.onBeatHit(event);
   }
 
   //yes this is the actual name of the function, no i'm not fucking changing it, fuck you -gdd
@@ -201,12 +205,12 @@ class MugshotStage extends Stage
 
   public override function onSongEvent(scriptEvent:SongEventScriptEvent)
   {
-    super.onSongEvent(scriptEvent);
-
     switch (scriptEvent.eventData.eventKind)
     {
       case 'mugshotRamCar':
-        
+        // lmao fuck this we just using beats
     }
+
+    super.onSongEvent(scriptEvent);
   }
 }
